@@ -3,6 +3,7 @@
 import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
+import { markHomeRestore } from "@/lib/home-scroll";
 
 interface ProjectPageShellProps {
   backHref?: string;
@@ -75,6 +76,7 @@ export function ProjectPageShell({
           <Link
             href={backHref}
             scroll={false}
+            onClick={() => markHomeRestore()}
             className="shrink-0 text-sm text-[var(--color-muted)] transition-colors hover:text-[var(--color-accent)]"
           >
             ← {backLabel}
@@ -111,6 +113,7 @@ export function ProjectPageShell({
         <Link
           href={backHref}
           scroll={false}
+          onClick={() => markHomeRestore()}
           className="text-sm text-[var(--color-muted)] transition-colors hover:text-[var(--color-accent)]"
         >
           ← {backLabel}

@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { HomeLogoLink } from "./HomeLogoLink";
 
 const nav = [
   { href: "/#about", label: "About" },
@@ -11,13 +12,7 @@ export function Header() {
   return (
     <header className="sticky top-0 z-50 border-b border-[var(--color-border)] bg-[var(--color-bg)]/80 backdrop-blur-xl">
       <div className="mx-auto flex max-w-6xl items-center justify-between px-6 py-4">
-        <Link
-          href="/"
-          scroll={false}
-          className="font-[family-name:var(--font-syne)] text-lg font-bold tracking-tight"
-        >
-          KBC<span className="text-[var(--color-accent)]">.</span>
-        </Link>
+        <HomeLogoLink />
         <nav className="hidden items-center gap-8 sm:flex">
           {nav.map((item) => (
             <Link
