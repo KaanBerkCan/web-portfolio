@@ -1545,15 +1545,15 @@
                 "type": "paragraph"
             },
             {
-                "text": "Genre: Dungeon Crawler Card Game",
+                "text": "Genre: Roguelike Dungeon Crawler / Card Game",
                 "type": "bullet"
             },
             {
-                "text": "Core Mechanic: Resource management and risk assessment using a standard 52-card playing deck.",
+                "text": "Core Mechanic: Resource management and risk assessment with a deck of playing cards, where each suit is a verb and the weapon degrades to whatever it last killed.",
                 "type": "bullet"
             },
             {
-                "text": "My Role: System Solo Developer",
+                "text": "My Role: Solo Designer & Developer",
                 "type": "bullet"
             },
             {
@@ -1561,7 +1561,7 @@
                 "type": "bullet"
             },
             {
-                "text": "Status: Simulation Analysis",
+                "text": "Status: Playable build on itch.io, Unity 6, PC",
                 "type": "bullet"
             },
             {
@@ -1572,7 +1572,7 @@
                 "type": "heading1"
             },
             {
-                "text": "This project reimagines a standard 52-card playing deck as a procedural dungeon crawler. By building upon the foundational spatial puzzle mechanics of Scoundrel and injecting the highly compelling, synergistic progression systems of Balatro, the design aims to deliver a deeply engaging and highly replayable dungeon crawler experience. The core gameplay loop requires players to constantly assess risk, calculate shifting probabilities based on the remaining deck composition, and strategically leverage \"Joker\" cards alongside passive abilities to create powerful mechanical synergies and survive the dungeon.",
+                "text": "Dekrawler is a single-player roguelike dungeon crawler played entirely with a deck of playing cards. One run is one deck: you draw four cards into a room, resolve them, and move on. Clear every threat in the deck and you win. It builds on the core loop of Scoundrel and its central tension, a weapon that degrades as it kills, and adds a run-to-run meta layer, a thirteen-tier campaign and two additional suits.",
                 "type": "paragraph"
             },
             {
@@ -1587,11 +1587,11 @@
                 "type": "heading2"
             },
             {
-                "text": "The game is played in \"Rooms\" (drawing 4 cards at a time). The mathematical weight of each card strictly dictates its mechanical value, capping at 14 (Ace) to ensure predictable, calculable survival odds.",
+                "text": "The game is played in rooms of four cards. You resolve enough of them that one or fewer is left, then you may leave, and the leftovers carry into the next room. Ranks 2 to 10 are their number, J is 11, Q is 12, K is 13 and A is 14. Beyond the four standard suits, Oracle reveals and rearranges part of the deck, and Python hides its face until it is played.",
                 "type": "paragraph"
             },
             {
-                "text": "Suit & TypeDungeon ElementMechanic & Interaction",
+                "text": "The card language",
                 "type": "heading2"
             },
             {
@@ -1633,7 +1633,7 @@
                 "type": "heading3"
             },
             {
-                "text": "Weapons do not simply break; they dynamically scale down. Defeating a Club enemy reduces the equipped Weapon's maximum power to match the defeated enemy's value.\n• Example: Killing a Club 7 with a Diamond 10 reduces the weapon's value to 7.",
+                "text": "Weapons do not simply break, they dynamically scale down. Equip a Diamond and its rank is your weapon power. Kill a Club with it and the weapon locks to that Club's rank, so from then on it can only be used on Clubs of that rank or lower.\n• Example: killing a Club 7 with a Diamond 10 locks the weapon at 7.\nThis is the whole game. Kill the weakest Club first and your weapon is locked at the bottom, so every Club above it has to be fought barehanded. Kill the strongest first and the ceiling stays high.",
                 "type": "paragraph"
             },
             {
@@ -1657,7 +1657,7 @@
                 "type": "heading2"
             },
             {
-                "text": "Currently, numerical values are established using exponential progression curves. To move from theoretical balance to empirical data:\n• Automated Simulations: I am building a Python script to run automated Monte Carlo simulations of the game.\n• Iterative Tuning: By running thousands of simulated hands, the economy and drop probabilities are iteratively adjusted to ensure the 8-Tier Campaign remains mathematically solvable.",
+                "text": "Balance is measured rather than estimated. The simulator drives the real game engine instead of a separate model of it, so a reading cannot drift from the shipped rules.\n• Automated simulations: thousands of runs per tier under a scripted policy, reporting clear rates for the bare campaign and for a fully invested loadout.\n• Iterative tuning: the campaign ladder is authored as rules rather than numbers, and each rule is introduced on its own before it is combined with another.",
                 "type": "paragraph"
             },
             {

@@ -6,7 +6,14 @@ export interface ExternalLink {
 }
 
 const URL_REGEX = /https?:\/\/[^\s\])|>]+/;
-const TOP_LINK_SLUGS = new Set(["harvey-park", "idle-incrementation"]);
+/* Projects whose itch.io link belongs at the head of the page rather than in
+   the External Links block at the foot: if you can go and play it, that is the
+   first thing the page should offer. */
+const TOP_LINK_SLUGS = new Set([
+  "harvey-park",
+  "idle-incrementation",
+  "dekrawler",
+]);
 
 function extractUrl(text: string): string | null {
   const match = text.match(URL_REGEX);
