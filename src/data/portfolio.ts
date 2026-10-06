@@ -22,7 +22,7 @@ export const site = {
   name: "Kaan Berk Can",
   title: "Game & System Design Portfolio",
   tagline: "Bridging engineering logic with creative system design",
-  bio: "Analytical Industrial Engineer and Software Developer with 3 years of experience at a global carrier, specializing in system optimization and development. Currently pursuing an MSc in Game Design at ITU to bridge the gap between rigorous engineering logic and creative system design. Proven track record in re-engineering complex algorithms and managing high-stakes technical transitions. Seeking Remote Technical Design, System Design or Analytics roles where I can apply mathematical modeling and creativity skills to drive system efficiency.",
+  bio: "Industrial Engineer and Software Developer with 3 years on Turkish Airlines' crew planning systems, where I rewrote the crew assignment optimizer's constraint model for 20,000+ crew. Now completing an MSc in Game and Interaction Technologies at ITU and designing games the way I built those systems: with mathematical models, simulation and data. Seeking remote Game Design, Technical Design, Systems Design, Software or Analytics roles.",
   email: "kaanc5528@gmail.com",
   phone: "+90 530 308 29 40",
   linkedin: "https://www.linkedin.com/in/kaan-berk-can",
@@ -114,15 +114,16 @@ export const projects: Project[] = [
     category: "digital-games",
     genre: "Roguelike Dungeon Crawler / Card Game",
     role: "Solo Designer & Developer",
-    status: "Playable Build",
+    status: "v0.4.0 on itch.io",
     summary:
-      "A single-player roguelike where one deck of playing cards is the entire dungeon. Each suit is a verb, and your weapon degrades to the rank of whatever it last killed, so the order you fight in matters more than anything else. Built solo in Unity 6 and released on itch.io.",
+      "A single-player roguelike where a deck of playing cards is the entire dungeon. Each suit is a verb, and your weapon degrades to the rank of whatever it last killed, so the order you fight in matters more than anything else. Built solo in Unity 6, with every graphic drawn in code and every sound synthesized at runtime, and released on itch.io.",
     highlights: [
       "Weapon degradation drives every decision: a kill locks the weapon to that enemy's rank, turning each room into a sequencing puzzle.",
       "Thirteen campaign tiers built from discrete rules rather than escalating stat multipliers, each rule introduced on its own before it is combined.",
-      "Two designed suits beyond the standard deck: Oracle reveals and rearranges part of the draw, Python hides its face until played.",
-      "Meta progression of 45 card-bound jokers, 15 artifacts and 4 deck upgrades, bought with crystals earned per run.",
+      "Two designed suits beyond the standard deck: Oracle reads and manipulates the upcoming draw, serpents hide their face until you commit to the fight.",
+      "Meta progression of 45 card-bound jokers, 15 rule-rewriting artifacts and 7 deck upgrades, bought with crystals; levels can be bought in any order.",
       "A Monte Carlo simulator drives the real game engine rather than a model of it, so balance is measured against the shipped rules.",
+      "No art or audio files: the interface is drawn in code and the soundtrack's four layers fade in as the run gets more dangerous.",
     ],
     tags: ["Playable Build", "Roguelike", "Deck Building", "Unity 6"],
     links: [
@@ -259,9 +260,9 @@ export const projects: Project[] = [
     slug: "human-vs-ai",
     title: "Human vs. AI: Creativity in Game Design",
     category: "research",
-    genre: "Academic Paper (IEEE Standards)",
-    role: "Researcher & Author",
-    status: "Published Paper",
+    genre: "Academic Paper (IEEE Format)",
+    role: "Researcher & First Author",
+    status: "Research Paper",
     summary:
       "Comparative analysis of creative outputs between human designers and generative AI in game mechanics and world-building, evaluating structural coherence, thematic resonance, and innovation.",
     highlights: [
@@ -357,6 +358,18 @@ export interface EducationEntry {
 
 export const experience: ExperienceEntry[] = [
   {
+    organization: "Independent Game Development & MSc Research",
+    period: "2024 — Present",
+    roles: [
+      {
+        title: "Game Designer & Developer / MSc Researcher",
+        period: "2024 — Present",
+        description:
+          "I design and build games solo and as team lead (Dekrawler, Harvey Park, Birth of Miracle). My MSc thesis extracts procedural game mechanics from a given text and simulates them to test whether the text's emotional load can be conveyed through mechanics alone.",
+      },
+    ],
+  },
+  {
     organization: "Turkish Airlines",
     period: "August 2022 — July 2025",
     roles: [
@@ -364,13 +377,13 @@ export const experience: ExperienceEntry[] = [
         title: "Administrator / System Developer",
         period: "October 2024 — July 2025",
         description:
-          "I worked on both software development and system and machine management via Mercurial and Git simultaneously.",
+          "I developed and maintained the Jeppesen crew suite (Pairing, Rostering, Tracking, Manpower) alongside system and machine management with Bash, Oracle and MS SQL, and took part in the team's migration from Mercurial to Git.",
       },
       {
         title: "System Developer",
         period: "April 2023 — October 2024",
         description:
-          "I focused on optimization and reporting using Python, SQL, and Rave, an aviation software language.",
+          "I rewrote the crew assignment optimizer's format and constraints from scratch (10–25% faster runs, fewer rule violations and manual corrections) and built Rave rules, Python tooling and SQL / Power BI reporting for 20,000+ cockpit and cabin crew, working directly with crew planners.",
       },
       {
         title: "Intern Developer",
@@ -398,7 +411,7 @@ export const education: EducationEntry[] = [
   {
     institution: "Istanbul Technical University",
     program: "Game and Interaction Technologies — Master's Degree Program",
-    period: "2024 — Present",
+    period: "2024 — Present (expected December 2026)",
   },
   {
     institution: "Yıldız Technical University",

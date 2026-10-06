@@ -1410,6 +1410,10 @@
                 "type": "bullet"
             },
             {
+                "text": "Engine: Godot",
+                "type": "bullet"
+            },
+            {
                 "text": "My Role: Game Designer, Developer, Narrative Designer",
                 "type": "bullet"
             },
@@ -1549,19 +1553,23 @@
                 "type": "bullet"
             },
             {
-                "text": "Core Mechanic: Resource management and risk assessment with a deck of playing cards, where each suit is a verb and the weapon degrades to whatever it last killed.",
+                "text": "Core Mechanic: Sequencing and risk assessment with a deck of playing cards, where each suit is a verb and the weapon degrades to whatever it last killed.",
                 "type": "bullet"
             },
             {
-                "text": "My Role: Solo Designer & Developer",
+                "text": "My Role: Solo Designer & Developer (design, code, interface, audio, balancing)",
                 "type": "bullet"
             },
             {
-                "text": "Inspirations: Scoundrel, Balatro",
+                "text": "Inspirations: Scoundrel (Zach Gage & Kurt Bieg), Balatro, Slay the Spire",
                 "type": "bullet"
             },
             {
-                "text": "Status: Playable build on itch.io, Unity 6, PC",
+                "text": "Status: v0.4.0, in development; playable build on itch.io (Windows, mouse only), Unity 6",
+                "type": "bullet"
+            },
+            {
+                "text": "Languages: English and Turkish",
                 "type": "bullet"
             },
             {
@@ -1572,7 +1580,7 @@
                 "type": "heading1"
             },
             {
-                "text": "Dekrawler is a single-player roguelike dungeon crawler played entirely with a deck of playing cards. One run is one deck: you draw four cards into a room, resolve them, and move on. Clear every threat in the deck and you win. It builds on the core loop of Scoundrel and its central tension, a weapon that degrades as it kills, and adds a run-to-run meta layer, a thirteen-tier campaign and two additional suits.",
+                "text": "Dekrawler is a single-player roguelike played entirely with a deck of cards. The dungeon is the deck: four cards are dealt into a room, you resolve them, and whatever you leave behind follows you into the next one. Clear every threat in the deck and you win; reach zero health and the run ends. It builds on the core loop of Scoundrel and its central tension, a weapon that degrades as it kills, and adds a thirteen-level campaign, two designed suits and a meta layer of jokers, artifacts and deck upgrades.",
                 "type": "paragraph"
             },
             {
@@ -1583,15 +1591,15 @@
                 "type": "heading1"
             },
             {
-                "text": "The 52-Card Dungeon (Core Loop)",
+                "text": "The Dungeon Is a Deck (Core Loop)",
                 "type": "heading2"
             },
             {
-                "text": "The game is played in rooms of four cards. You resolve enough of them that one or fewer is left, then you may leave, and the leftovers carry into the next room. Ranks 2 to 10 are their number, J is 11, Q is 12, K is 13 and A is 14. Beyond the four standard suits, Oracle reveals and rearranges part of the deck, and Python hides its face until it is played.",
+                "text": "Four cards are dealt face up. Deal with three of them and the next room comes out on its own; the card you did not play slides over and stays with you. Only three suits are threats: Clubs, Spades and, from tier 8, serpents. Hearts, Diamonds and Oracle cards can be left on the table forever. Every level starts you at 20 health and none raises it, so later tiers are harder because of what the dungeon does, not because of what it takes away from you. Number cards are worth their number; Jack is 11, Queen 12, King 13, Ace 14.",
                 "type": "paragraph"
             },
             {
-                "text": "The card language",
+                "text": "The Card Language",
                 "type": "heading2"
             },
             {
@@ -1599,28 +1607,38 @@
                 "rows": [
                     [
                         "Mechanic & Interaction",
-                        "Suit & Type",
+                        "Suit",
                         "Dungeon Element"
                     ],
                     [
-                        "Used to clear enemies. Equipping a new weapon discards the old one.",
+                        "Equip to fight. You carry one at a time, so a new Diamond discards the old one. Ships without its court unless upgraded.",
                         "♦️ Diamonds",
                         "Weapons"
                     ],
                     [
-                        "Cleared using Weapons. If the weapon is weaker than the enemy, player takes damage equal to the difference.",
+                        "Heals by its number. Only the first potion in a room does anything; overheal is wasted unless an upgrade banks it.",
+                        "♥️ Hearts",
+                        "Potions"
+                    ],
+                    [
+                        "A fight you choose how to take: with the weapon (lose the difference, then the blade degrades) or barehanded (take its full strength, blade untouched).",
                         "♣️ Clubs",
                         "Elite Enemies"
                     ],
                     [
-                        "Restores HP exactly equal to the card's face value.",
-                        "♥️ Hearts",
-                        "Health Potions"
+                        "Needs a weapon; never refused and never degrades the blade. Any Spade left on the table bites on the way out, and every bite is worse than the last.",
+                        "♠️ Spades",
+                        "Pests"
                     ],
                     [
-                        "Cleared without degrading weapons. If fled from, inflicts snowballing direct damage at the end of the room.",
-                        "♠️ Spades",
-                        "Pests / Hazards"
+                        "Added by a deck upgrade. Reads and manipulates the upcoming draw. Not a threat.",
+                        "🔮 Oracle",
+                        "Divination"
+                    ],
+                    [
+                        "Added by the level from tier 8. Face hidden until you commit to the fight; your weapon reduces the damage and never degrades.",
+                        "🐍 Serpents",
+                        "Hidden Threats"
                     ]
                 ]
             },
@@ -1629,11 +1647,19 @@
                 "type": "heading2"
             },
             {
-                "text": "Weapon Degradation System",
+                "text": "Weapon Degradation",
                 "type": "heading3"
             },
             {
-                "text": "Weapons do not simply break, they dynamically scale down. Equip a Diamond and its rank is your weapon power. Kill a Club with it and the weapon locks to that Club's rank, so from then on it can only be used on Clubs of that rank or lower.\n• Example: killing a Club 7 with a Diamond 10 locks the weapon at 7.\nThis is the whole game. Kill the weakest Club first and your weapon is locked at the bottom, so every Club above it has to be fought barehanded. Kill the strongest first and the ceiling stays high.",
+                "text": "This is the rule the rest of the game is arranged around. Kill a Club with your weapon and the blade is locked to that Club's number from then on, and the lock only ever descends. A Club above the lock cannot be fought with that weapon at all: the game refuses the swing and bare hands are the only option. On a fresh blade there is no lock yet, so whatever you open on becomes the ceiling for its whole life.\n• Example: an Ace opened on a Club 5 is a 5.\nSo the first decision of every weapon is the most important one: open on the biggest thing you can reach.",
+                "type": "paragraph"
+            },
+            {
+                "text": "The Pest Counter",
+                "type": "heading3"
+            },
+            {
+                "text": "Every Spade still on the table when a room ends takes a bite, and each bite costs one more than the last. The counter starts at 2 and never falls on its own: leave two Spades behind and they cost 2 + 3 = 5 health, and the next pest now starts at 4. It does not matter whether you played through, left or fled. Only shop items and specific jokers or artifacts move it back down.",
                 "type": "paragraph"
             },
             {
@@ -1641,15 +1667,134 @@
                 "type": "heading3"
             },
             {
-                "text": "To incentivize aggressive sequencing, Gold generation requires chaining kills of the same target type. The payout multiplier escalates linearly after the 3rd consecutive kill, calculated as:",
+                "text": "Gold comes only from killing threats, and a combo belongs to a suit. Each consecutive kill in the same suit is worth half again the one before it, starting at 10 gold and capping on the eighth kill:",
                 "type": "paragraph"
             },
             {
-                "type": "equation",
-                "text": "M = max(1, n - 2)"
+                "text": "Gold(n) = floor(10 × 1.5^(n−1)), capped at n = 8   →   10, 15, 22, 33, 50, 75, 113, 170",
+                "type": "equation"
             },
             {
-                "text": "(Where “n” is the consecutive kill streak. Equipping a new weapon, healing, or switching targets immediately resets the combo to zero).",
+                "text": "Equipping a weapon, drinking a potion, playing an Oracle, leaving or fleeing all end the combo; moving to the next room or visiting a shop does not. Which enemy you take next is therefore an income question as well as a health one.",
+                "type": "paragraph"
+            },
+            {
+                "text": "Leaving and Fleeing",
+                "type": "heading3"
+            },
+            {
+                "text": "While you have not played a card, you can walk away or run. Leaving puts the whole room under the deck, so you will meet those cards again, and it cannot be used two rooms in a row. Fleeing sends only the threats under the deck and destroys every Heart, Diamond and Oracle on the table, but it is never closed, so a room of pests with no weapon is never a dead run.",
+                "type": "paragraph"
+            },
+            {
+                "text": "Thirteen-Level Campaign",
+                "type": "heading2"
+            },
+            {
+                "text": "Thirteen levels, one for each rank in a suit, and every one changes the dungeon rather than the player. The ladder is authored as rules rather than escalating numbers: a level may take the court out of a suit, deal the black court twice, destroy part of a suit before the run, close leaving, let pests degrade the weapon, push the pest counter every room or bring back some of what you kill. No level raises your health and no level gives a threat a negative modifier. Each level's rules panel in the game is generated from the level data itself, so it can never drift from what is actually played.",
+                "type": "paragraph"
+            },
+            {
+                "type": "table",
+                "rows": [
+                    [
+                        "Level",
+                        "Name",
+                        "Premise"
+                    ],
+                    [
+                        "1",
+                        "The Starter Deck",
+                        "A plain deck and nothing else. Learn the weapon here."
+                    ],
+                    [
+                        "2",
+                        "Rat Nest",
+                        "Something has been at the armoury, and the vermin have grown bold."
+                    ],
+                    [
+                        "3",
+                        "Rusty Blades",
+                        "Everything here corrodes: your blade, and what you drink to survive it."
+                    ],
+                    [
+                        "4",
+                        "Elite Guards",
+                        "The court came in pairs. There are twice as many of them as there should be."
+                    ],
+                    [
+                        "5",
+                        "Inflation",
+                        "The good steel is gone and everything costs more than it is worth."
+                    ],
+                    [
+                        "6",
+                        "League of Giants",
+                        "They are bigger than you and they have blocked the door."
+                    ],
+                    [
+                        "7",
+                        "Double Trouble",
+                        "Kill one and it stands back up. Not always. Often enough."
+                    ],
+                    [
+                        "8",
+                        "The Serpent Pit",
+                        "Something else lives down here, and you will not see it coming."
+                    ],
+                    [
+                        "9",
+                        "Black Mass",
+                        "Every moment you spend here, the swarm gets larger."
+                    ],
+                    [
+                        "10",
+                        "Hollow Crown",
+                        "A crown with nothing under it. No healing, no steel, only soldiers."
+                    ],
+                    [
+                        "11",
+                        "Serpent Choir",
+                        "They sing, and the walls close, and your supplies are worth almost nothing."
+                    ],
+                    [
+                        "12",
+                        "The Apocalypse",
+                        "Nothing stays dead and nothing was left for you."
+                    ],
+                    [
+                        "13",
+                        "The Last Crawl",
+                        "The last one. Everything the dungeon has, at once."
+                    ]
+                ]
+            },
+            {
+                "text": "Meta-Progression",
+                "type": "heading2"
+            },
+            {
+                "text": "Soul Crystals are the currency that survives a run. Every run pays them, win or lose: the base payout reflects how many threats you cleared against how many rooms it took, scaled by the level. A loss is scaled by how far you got and capped below what a win at that pace would pay. Bonuses stack multiplicatively in a fixed order: challenge artifacts, then a speed grade from S+ to F against a par time scaled to the deck, then a first-clear bonus that pays the run exactly twice. Crystals buy four things:",
+                "type": "paragraph"
+            },
+            {
+                "text": "Levels: bought in any order. Each price is derived from what the level below it can pay at its very best, so the ladder climbs steeply.",
+                "type": "bullet"
+            },
+            {
+                "text": "Jokers: 45 effects (15 Diamond, 15 Heart, 15 Oracle), each bound to one exact card in your deck and fired when that card is played. Pulled from a gacha rather than picked; every full ten pulls guarantees an Epic or better. Golden jokers are separately written effects, not bigger numbers. Unwanted jokers can be crystalized back into currency.",
+                "type": "bullet"
+            },
+            {
+                "text": "Artifacts: rule rewrites, not stat bonuses. Twelve standard artifacts priced by what they do (for example Rustproof stops degradation, Mirror Reflection removes every Heart for stacking armor), plus three hidden challenge artifacts that make the run harder and pay +25%, +50% or +100% crystals. Three slots per level.",
+                "type": "bullet"
+            },
+            {
+                "text": "Deck upgrades: Diamond, Heart and Oracle Court put the J–A back into suits that ship without them; Armored Diamonds and Armored Hearts turn wasted margin and overheal into armor; Oracle Deck and Oracle Ascendant add and deepen the Oracle suit.",
+                "type": "bullet"
+            },
+            {
+                "text": "Inside a run, shops arrive on a pity timer (never closer than three rooms, certain by the tenth). Every stall rolls an upgrade tier at spawn with odds that climb with the campaign level, and from the middle tiers some stalls pair one upside with one drawback that either strengthens the item or cuts its price.",
                 "type": "paragraph"
             },
             {
@@ -1657,672 +1802,44 @@
                 "type": "heading2"
             },
             {
-                "text": "Balance is measured rather than estimated. The simulator drives the real game engine instead of a separate model of it, so a reading cannot drift from the shipped rules.\n• Automated simulations: thousands of runs per tier under a scripted policy, reporting clear rates for the bare campaign and for a fully invested loadout.\n• Iterative tuning: the campaign ladder is authored as rules rather than numbers, and each rule is introduced on its own before it is combined with another.",
+                "text": "Balance is measured rather than estimated. The simulator drives the real game engine instead of a separate model of it, so a reading cannot drift from the shipped rules.",
                 "type": "paragraph"
             },
             {
-                "type": "divider"
+                "text": "Automated simulations: thousands of runs per level under a scripted policy, reporting clear rates for the bare campaign and for a fully invested loadout.",
+                "type": "bullet"
             },
             {
-                "text": "Feel free to scroll through the full game details below by clicking the toggle icons for each heading.",
+                "text": "Measuring the measurer: the difficulty table was re-measured after the simulator turned out to be reporting its own bad play rather than the game's difficulty.",
+                "type": "bullet"
+            },
+            {
+                "text": "Economy from code, not a spreadsheet: level prices, artifact prices, the speed multiplier and the first-clear bonus were recalculated from what a level can actually pay.",
+                "type": "bullet"
+            },
+            {
+                "text": "Honest previews: hovering a card shows its exact cost by playing it on a throwaway copy of the run, so the projection can never disagree with the click.",
+                "type": "bullet"
+            },
+            {
+                "text": "Presentation & Audio",
+                "type": "heading2"
+            },
+            {
+                "text": "There are no art or audio files in the project. Everything on screen is interface drawn in code: real cards with pips, corner indices and a 5:7 face, a coin pile that fills as you earn, and a health bar that shows armor and the incoming hit as separate bands. Every sound is synthesized at runtime from a recipe, and the music is one evolving loop whose four layers fade in as the run gets more dangerous, so the soundtrack tells you how much trouble you are in before the numbers do.",
                 "type": "paragraph"
             },
             {
-                "type": "divider"
-            },
-            {
-                "text": "Core Loop",
-                "level": 1,
-                "type": "toggle",
-                "children": [
-                    {
-                        "text": "The Objective",
-                        "level": 2,
-                        "type": "toggle",
-                        "children": [
-                            {
-                                "text": "You are navigating a dangerous dungeon using a standard 52-card deck. Your goal is to survive the entire deck without your Health Points (HP) dropping to zero. You start with 20 Max HP.",
-                                "type": "paragraph"
-                            }
-                        ]
-                    },
-                    {
-                        "text": "The Room (Turn Structure)",
-                        "level": 2,
-                        "type": "toggle",
-                        "children": [
-                            {
-                                "text": "The game is played in \"Rooms\". At the start of each turn, you draw 4 cards from the deck and place them face-up on the board. You must interact with these cards strategically. Once you have cleared the board (or decided to leave the remaining cards behind), you draw the next 4 cards to enter the next Room. You may leave the room either when there are no more cards left or only one card is left.",
-                                "type": "paragraph"
-                            }
-                        ]
-                    },
-                    {
-                        "text": "The Suits & Mechanics",
-                        "level": 2,
-                        "type": "toggle",
-                        "children": [
-                            {
-                                "text": "Each suit in the deck represents a different element of the dungeon:\n• ♦️ Diamonds (Weapons): These are your tools for survival. You can equip a Diamond as a weapon to fight enemies. You can only hold one weapon at a time. If you pick up a new Diamond, your currently equipped weapon is discarded.\n• ♥️ Hearts (Health Potions): Drinking a Heart restores your HP by the card's face value. Your HP cannot exceed your maximum limit.\n• ♣️ Clubs (Elite Enemies): These are the main monsters. To defeat a Club, you must use your equipped Weapon.\n    ◦ If your Weapon's value is greater than or equal to the Enemy's value, you defeat it and take 0 damage.\n    ◦ If your Weapon is weaker than the Enemy (or if you are unarmed), you take damage equal to the difference. (e.g., If you have a 5 Weapon and attack a 9 Enemy, you take 4 damage).\n• ♠️ Spades (Pests/Hazards): These are swarming hazards. They work differently than Clubs:\n    ◦ Any weapon equipped (no matter what its degrated value is) can be used against Spades with its full face value, but you still take the exceed damage. You cannot clear a spade without a weapon. Clearing spades does not degrade the weapon.\n    ◦ If you choose not to clear a Spade andl leave the room, for every Spade left on the board when you draw the next 3 cards, you take 1 direct damage. Every time you leave the room with a Spade left, next damage you take from Spades increases by one.",
-                                "type": "paragraph"
-                            }
-                        ]
-                    },
-                    {
-                        "text": "End of the Run",
-                        "level": 2,
-                        "type": "toggle",
-                        "children": [
-                            {
-                                "text": "The loop continues: draw 4 cards, manage your weapon degradation, clear pests, build combos, and survive. If your HP hits 0, the run ends. If you clear the deck, you proceed to the next, more challenging level!",
-                                "type": "paragraph"
-                            },
-                            {
-                                "type": "table",
-                                "rows": [
-                                    [
-                                        "Type",
-                                        "Specifications",
-                                        "Suit"
-                                    ],
-                                    [
-                                        "Weapon",
-                                        "Use for clearing enemies. Discarded if another weapon is equipped ad degrades to the point of the Clubs enemy you clear.",
-                                        "♦️Diamonds"
-                                    ],
-                                    [
-                                        "Elite Enemy",
-                                        "Can be cleared with weapons or direct hits, dealing damage to player. Degrades the weapon (if equipped) to face value of itself.",
-                                        "♣️ Clubs"
-                                    ],
-                                    [
-                                        "Potion",
-                                        "Heal the amount of face value without exceeding maximum HP.",
-                                        "♥️ Hearts"
-                                    ],
-                                    [
-                                        "Pest Enemy",
-                                        "Can be cleared without degrading the weapon but if left uncleared, deals 1+n damage at the end of the room. “n” is how many Spades left uncleared up until that room, in that run.",
-                                        "♠️ Spades"
-                                    ]
-                                ]
-                            },
-                            {
-                                "type": "table",
-                                "rows": [
-                                    [
-                                        "Type",
-                                        "Specifications",
-                                        "Suit"
-                                    ],
-                                    [
-                                        "Weapon",
-                                        "Use for clearing enemies. Discarded if another weapon is equipped ad degrades to the point of the Clubs enemy you clear.",
-                                        "♦️Diamonds"
-                                    ],
-                                    [
-                                        "Elite Enemy",
-                                        "Can be cleared with weapons or direct hits, dealing damage to player. Degrades the weapon (if equipped) to face value of itself.",
-                                        "♣️ Clubs"
-                                    ],
-                                    [
-                                        "Potion",
-                                        "Heal the amount of face value without exceeding maximum HP.",
-                                        "♥️ Hearts"
-                                    ],
-                                    [
-                                        "Pest Enemy",
-                                        "Can be cleared without degrading the weapon but if left uncleared, deals 1+n damage at the end of the room. “n” is how many Spades left uncleared up until that room, in that run.",
-                                        "♠️ Spades"
-                                    ]
-                                ]
-                            }
-                        ]
-                    }
-                ]
-            },
-            {
-                "type": "divider"
-            },
-            {
-                "text": "Mechanics and Systems",
-                "level": 1,
-                "type": "toggle",
-                "children": [
-                    {
-                        "text": "Deterministic Values",
-                        "level": 2,
-                        "type": "toggle",
-                        "children": [
-                            {
-                                "text": "The numerical value of each card strictly dictates its mechanical weight (e.g., an enemy's HP, a weapon's durability, or a potion's healing yield). This creates a tightly bound, predictable scaling system:",
-                                "type": "paragraph"
-                            },
-                            {
-                                "text": "Numbered Cards (2-10): Face value.",
-                                "type": "bullet"
-                            },
-                            {
-                                "text": "Face/Court Cards: Jack (11), Queen (12), King (13), Ace (14).",
-                                "type": "bullet"
-                            },
-                            {
-                                "text": "Design Perspective: Capping the maximum value at 14 ensures that the mathematical bounds remain manageable. It allows the player to calculate exact survival odds without the frustration of infinite numerical inflation.",
-                                "type": "bullet"
-                            }
-                        ]
-                    },
-                    {
-                        "text": "Fleeing System",
-                        "level": 2,
-                        "type": "toggle",
-                        "children": [
-                            {
-                                "text": "There are two types of fleeing: classical flee and desperation flee.",
-                                "type": "paragraph"
-                            },
-                            {
-                                "text": "• Classical Flee: You can flee a room if you haven’t interacted with any of the four cards dealt. If you flee, all cards in the room are sent to the downside of the deck. You take no damage from spades. You cannot use classical flee in two rooms in a row.",
-                                "type": "paragraph"
-                            },
-                            {
-                                "text": "• Desperation Flee: You can flee a room if you haven’t interacted with any of the four cards dealt, just like classical flee. But this time, if you flee, only black cards in the room are sent to the downside of the deck and red cards are discarded. You take damage from sent spades. But you can use desperation flee any time you want.",
-                                "type": "paragraph"
-                            }
-                        ]
-                    },
-                    {
-                        "text": "Weapon Degredation System",
-                        "level": 2,
-                        "type": "toggle",
-                        "children": [
-                            {
-                                "text": "This is the heart of the game's strategy. Weapons do not break after a single use, but they degrade. When you defeat a Club enemy, your Weapon's maximum power drops to match the value of the enemy you just killed.\n• Example: You equip a Diamond 10. You attack and kill a Club 7. You take no damage, but your weapon's power is now reduced to 7. You can no longer kill an 8-value enemy without taking damage.\n• Note: Clearing Spades (Pests) does not degrade your weapon.",
-                                "type": "paragraph"
-                            }
-                        ]
-                    },
-                    {
-                        "text": "Adrenaline (Combo) System",
-                        "level": 2,
-                        "type": "toggle",
-                        "children": [
-                            {
-                                "text": "To incentivize aggressive sequencing and punish overly passive play, Gold generation is governed by a progressive combo multiplier based on consecutive enemy (Clubs) kills.",
-                                "type": "paragraph"
-                            },
-                            {
-                                "text": "Killing the same type of target consecutively (e.g., Club-Club, or Spade-Spade) increases your Combo Multiplier.",
-                                "type": "bullet"
-                            },
-                            {
-                                "text": "The Gold you earn equals the defeated enemy's value multiplied by your current Combo.",
-                                "type": "bullet"
-                            },
-                            {
-                                "text": "Combo Breaker: Equipping a new Weapon (Diamond), drinking a Potion (Heart), or switching your target type (Clubs-Spade) immediately resets your combo to zero. You must balance your greed for Gold with your need to heal and upgrade your weapons.",
-                                "type": "bullet"
-                            },
-                            {
-                                "text": "Multiplier",
-                                "level": 3,
-                                "type": "toggle",
-                                "children": [
-                                    {
-                                        "text": "Kills 1 to 3: Standard yield (x1 Multiplier). The baseline economy is tight.",
-                                        "type": "bullet"
-                                    },
-                                    {
-                                        "text": "Kill 4 and beyond: Linear escalation. The 4th consecutive kill grants a x2 multiplier, the 5th grants x3, the 6th grants x4, and so forth.",
-                                        "type": "bullet"
-                                    },
-                                    {
-                                        "text": "Multiplier Formula: For a consecutive kill streak of n, the payout multiplier M is calculated as M = max(1, n - 2).",
-                                        "type": "bullet"
-                                    },
-                                    {
-                                        "text": "Design Perspective: This structure forces players to strategically manipulate the board state. Leaving weaker enemies alive to build a larger combo chain becomes a calculated risk, adding immense depth to the resource management loop.",
-                                        "type": "bullet"
-                                    }
-                                ]
-                            }
-                        ]
-                    },
-                    {
-                        "text": "In-Game Economy & Meta-Progression",
-                        "level": 2,
-                        "type": "toggle",
-                        "children": [
-                            {
-                                "text": "The game features a dual-currency system designed to balance short-term risk assessment during a run with long-term strategic investment in the meta-game.",
-                                "type": "paragraph"
-                            },
-                            {
-                                "text": "1. Run Currency: Gold",
-                                "level": 3,
-                                "type": "toggle",
-                                "children": [
-                                    {
-                                        "text": "Gold is the volatile, in-run currency. It dictates your purchasing power during a single attempt and resets when you die or complete a run.\n• Acquisition (The Adrenaline System): Gold is generated primarily by defeating Clubs (Enemies). The base payout is equal to the face value of the defeated Club.\n• Combo Multiplier: Chaining kills of the same target type (e.g., Club-Club or Spade-Spade) increases the Combo Multiplier (x1, x2, x3...). The total Gold earned is the card's value multiplied by the current combo.\n• Combo Breakers: Equipping a new Diamond (Weapon), using a Heart (Potion), or switching the target type immediately resets the multiplier back to zero.\n• The Shop: Every 4 cleared rooms, the player enters a safe zone containing a Shop. Here, Gold is spent on single-use consumables, temporary buffs, and run-specific passive items.",
-                                        "type": "paragraph"
-                                    }
-                                ]
-                            },
-                            {
-                                "text": "2. Meta Currency: Soul Crystals",
-                                "level": 3,
-                                "type": "toggle",
-                                "children": [
-                                    {
-                                        "text": "Soul Crystals are the permanent, hard currency of the game. They are never lost upon death and are used exclusively in the main menu to expand the player's arsenal.\n• Acquisition Methods:\n◦ End-of-Run Conversion: When a run ends (victory or death), all accumulated Gold is liquidated into Crystals at a fixed exchange rate (e.g., 100 Gold = 1 Crystal).\n◦ Boss Bounties: Defeating the highest value targets, specifically the Ace of Clubs and Ace of Spades, grants an immediate +1 Crystal bounty.\n◦ Adrenaline Rush: Reaching a Combo Multiplier of x8 or higher rewards the player with +1 Crystal for every subsequent consecutive kill in that chain.\n• Meta-Progression Sinks (The Mystic Shop):\n◦ Campaign Unlocks: Spending Crystals to unlock the next deck tier (increasing difficulty modifiers and rulesets).\n◦ Permanent Artifacts: Purchasing passive buffs that are equipped before a run begins (e.g., starting with extra Max HP or a base weapon).\n◦ The Joker Forge (Gacha & Merge): Crystals are used to pull random \"Joker\" cards from a depleting pool to shuffle into the run deck. Players can also pay a hefty Crystal fee to merge three identical Joker cards into a single \"Golden Joker\" with doubled effects.",
-                                        "type": "paragraph"
-                                    }
-                                ]
-                            }
-                        ]
-                    }
-                ]
-            },
-            {
-                "type": "divider"
-            },
-            {
-                "text": "Progression",
-                "level": 1,
-                "type": "toggle",
-                "children": [
-                    {
-                        "text": "Overview",
-                        "level": 2,
-                        "type": "toggle",
-                        "children": [
-                            {
-                                "text": "The game features an 8-tier Campaign mode. Instead of a single endless run, players must conquer increasingly difficult versions of the dungeon. Each tier introduces severe mathematical disadvantages, forcing the player to rely on their meta-progression (Artifacts and Golden Jokers) and strategic deck-building to survive.",
-                                "type": "paragraph"
-                            }
-                        ]
-                    },
-                    {
-                        "text": "Unlock System",
-                        "level": 2,
-                        "type": "toggle",
-                        "children": [
-                            {
-                                "text": "Players do not automatically progress to the next difficulty upon winning. To unlock a new Deck Tier, two strict conditions must be met:",
-                                "type": "paragraph"
-                            },
-                            {
-                                "text": "Completion: The player must successfully survive and complete the immediately preceding Deck Tier at least once.",
-                                "type": "numbered"
-                            },
-                            {
-                                "text": "Crystal Payment: The player must pay a one-time unlock fee using Soul Crystals at the Mystic Shop. This creates a natural loop where players must \"farm\" lower tiers to afford the entry fee for higher tiers.",
-                                "type": "numbered"
-                            },
-                            {
-                                "type": "table",
-                                "rows": [
-                                    [
-                                        "Crystal Cost",
-                                        "Ruleset & Modifier",
-                                        "Deck Name",
-                                        "Level"
-                                    ],
-                                    [
-                                        "0 💎",
-                                        "Standard 52-card deck. All face values are normal. Perfect zero-sum balance.",
-                                        "The Starter Deck",
-                                        "1"
-                                    ],
-                                    [
-                                        "25 💎",
-                                        "Spades are +3 Value. Requires significantly stronger weapons just to clear pests without taking the snowballing damage penalty.",
-                                        "Rat Nest",
-                                        "2"
-                                    ],
-                                    [
-                                        "60 💎",
-                                        "Diamonds are -2 Value. Weapons are inherently weaker. Impossible to kill King Clubs without taking damage unless buffed.",
-                                        "Rusty Blades",
-                                        "3"
-                                    ],
-                                    [
-                                        "120 💎",
-                                        "Face Clubs (J, Q, K) deal x2 Damage. Punishes unarmed players and weak weapons with lethal burst damage.",
-                                        "Elite Guards",
-                                        "4"
-                                    ],
-                                    [
-                                        "200 💎",
-                                        "Shop Prices x2 & Hearts heal half. An economic crisis tier. Mistakes are harder to recover from, and upgrades are scarce.",
-                                        "Inflation",
-                                        "5"
-                                    ],
-                                    [
-                                        "350 💎",
-                                        "All Clubs are +5 Value. The lowest enemy is a 7. Early-game weapons are completely obsolete; permanent damage artifacts are mandatory.",
-                                        "League of Giants",
-                                        "6"
-                                    ],
-                                    [
-                                        "600 💎",
-                                        "Spades and Clubs are x1.5 Value. A chaotic tier where both pests and elite enemies scale rapidly out of control.",
-                                        "Double Trouble",
-                                        "7"
-                                    ],
-                                    [
-                                        "1000 💎",
-                                        "All negative modifiers combined. (Spades +3, Diamonds -2, Clubs x1.5). The ultimate Grandmaster test. Requires a mathematically perfect loadout to survive.",
-                                        "The Apocalypse",
-                                        "8"
-                                    ]
-                                ]
-                            }
-                        ]
-                    },
-                    {
-                        "text": "Meta-Progression: Permanent Artifacts",
-                        "level": 2,
-                        "type": "toggle",
-                        "children": [
-                            {
-                                "text": "Overview",
-                                "level": 3,
-                                "type": "toggle",
-                                "children": [
-                                    {
-                                        "text": "Permanent Artifacts are powerful passive modifiers purchased with Soul Crystals in the main menu's Mystic Shop. Unlike in-run Shop items, which are temporary and lost upon death or completion, Artifacts form the player's core arsenal and remain active for the entirety of the run.",
-                                        "type": "paragraph"
-                                    }
-                                ]
-                            },
-                            {
-                                "text": "Loadout System",
-                                "level": 3,
-                                "type": "toggle",
-                                "children": [
-                                    {
-                                        "text": "To maintain game balance and prevent the player from mathematically outscaling the deck too quickly, Artifacts are governed by a strict slot system.",
-                                        "type": "paragraph"
-                                    },
-                                    {
-                                        "text": "Base Capacity: The player begins the game with only 1 active Artifact slot.",
-                                        "type": "bullet"
-                                    },
-                                    {
-                                        "text": "Upgrading Capacity: Players can spend a significant amount of Soul Crystals to permanently unlock additional slots (e.g., expanding to a maximum of 3 slots).",
-                                        "type": "bullet"
-                                    },
-                                    {
-                                        "text": "Strategic Build-Crafting: Before embarking on a run, the player must select and equip their Artifacts from their unlocked collection. This forces strategic decision-making based on the selected Deck Tier. (e.g., Equipping economy-focused Artifacts to farm Gold on lower tiers, or prioritizing heavy combat modifiers to survive the \"Apocalypse\" tier).",
-                                        "type": "bullet"
-                                    }
-                                ]
-                            },
-                            {
-                                "text": "Artifact Categories & Pricing",
-                                "level": 3,
-                                "type": "toggle",
-                                "children": [
-                                    {
-                                        "text": "Artifacts are priced according to their tier and how deeply they alter the mathematical deficit of the run. Here are the artifacts tiers with a few example artifacts:",
-                                        "type": "paragraph"
-                                    },
-                                    {
-                                        "text": "Tier 1 - Fundamentals (50 Crystal): Basic utility and early-game safety nets.",
-                                        "type": "bullet",
-                                        "children": [
-                                            {
-                                                "text": "Apprentice Badge: Begin the run with a Diamond 4 (Weapon) already equipped, preventing early unarmed damage.",
-                                                "type": "bullet"
-                                            },
-                                            {
-                                                "text": "Inheritance: Start the run with 25 Gold in your pocket.",
-                                                "type": "bullet"
-                                            }
-                                        ]
-                                    },
-                                    {
-                                        "text": "Tier 2 - Sustain & Economy (200 Crystal): Modifiers that ease the core loop constraints and resource management.",
-                                        "type": "bullet",
-                                        "children": [
-                                            {
-                                                "text": "Vampire Tooth: Recover 1 HP for every 5 enemies defeated.",
-                                                "type": "bullet"
-                                            },
-                                            {
-                                                "text": "Leather Scabbard: Weapons degrade slower (e.g., absorbing 1 point of degradation per kill).",
-                                                "type": "bullet"
-                                            },
-                                            {
-                                                "text": "Combo Apprentice: The Adrenaline (Combo) Multiplier starts at x2 instead of x1.",
-                                                "type": "bullet"
-                                            }
-                                        ]
-                                    },
-                                    {
-                                        "text": "Tier 3 - Game Changers (500 Crystal): Expensive investments that drastically alter combat calculus or break standard rules.",
-                                        "type": "bullet",
-                                        "children": [
-                                            {
-                                                "text": "Adrenaline: Weapons face value x2 damage when the player's HP drops below 20%.",
-                                                "type": "bullet"
-                                            },
-                                            {
-                                                "text": "Stainless Steel: Clearing Spades (Pests) provides heals 2 HP.",
-                                                "type": "bullet"
-                                            },
-                                            {
-                                                "text": "Titan's Grip: Face value of Jack, Queen, King and Ace of Diamonds are increased by 2.",
-                                                "type": "bullet"
-                                            }
-                                        ]
-                                    }
-                                ]
-                            }
-                        ]
-                    },
-                    {
-                        "text": "Jokers and The Forge",
-                        "level": 2,
-                        "type": "toggle",
-                        "children": [
-                            {
-                                "text": "Overview",
-                                "level": 3,
-                                "type": "toggle",
-                                "children": [
-                                    {
-                                        "text": "Jokers are powerful, rule-breaking cards that are physically shuffled into the run deck. Unlike standard suit cards, Jokers provide unique tactical advantages ranging from direct damage and healing to deck manipulation and economic boosts. To acquire them, players must engage with a randomized Gacha system using Soul Crystals and manage their duplicates strategically.",
-                                        "type": "paragraph"
-                                    }
-                                ]
-                            },
-                            {
-                                "text": "Acquisition",
-                                "level": 3,
-                                "type": "toggle",
-                                "children": [
-                                    {
-                                        "text": "Players purchase new Jokers from the main menu using their hard-earned Soul Crystals. The system allows for infinite duplicates, encouraging players to hoard identical cards for future upgrades.",
-                                        "type": "paragraph"
-                                    },
-                                    {
-                                        "text": "Single Pull: 20 Crystal",
-                                        "type": "bullet"
-                                    },
-                                    {
-                                        "text": "Triple Pull Bundle: 50 Crystal (A discounted bundle saving 10 Crystals, encouraging bulk purchases)",
-                                        "type": "bullet"
-                                    }
-                                ]
-                            },
-                            {
-                                "text": "Rarity & Drop Rates",
-                                "level": 3,
-                                "type": "toggle",
-                                "children": [
-                                    {
-                                        "text": "The Joker pool consists of 50 unique cards divided into four distinct rarity tiers. The probability of pulling a card is strictly tied to its rarity:",
-                                        "type": "paragraph"
-                                    },
-                                    {
-                                        "text": "Common (50% Drop Rate): Fundamental utility cards (e.g., The Thief - steals 20 Gold, Healing Fairy - restores 5 HP).",
-                                        "type": "bullet"
-                                    },
-                                    {
-                                        "text": "Rare (30% Drop Rate): Tactical board-control cards (e.g., The Bomb - deals 10 AoE damage, The Freezer - delays enemy attacks).",
-                                        "type": "bullet"
-                                    },
-                                    {
-                                        "text": "Epic (15% Drop Rate): Run-saving interventions (e.g., The Fool - acts as a wildcard, Holy Light - clears all Spades instantly).",
-                                        "type": "bullet"
-                                    },
-                                    {
-                                        "text": "Legendary (5% Drop Rate): Game-breaking phenomenons (e.g., Time Stop - grants free attacks, Exodia Piece - an alternate win condition).",
-                                        "type": "bullet"
-                                    }
-                                ]
-                            },
-                            {
-                                "text": "The Forge (Merging Duplicate Jokers)",
-                                "level": 3,
-                                "type": "toggle",
-                                "children": [
-                                    {
-                                        "text": "Drawing duplicates is not a punishment; it is the core of the late-game progression. Inspired by auto-battler mechanics, players can access \"The Forge\" to combine their duplicate Jokers into ultimate versions of themselves.",
-                                        "type": "paragraph"
-                                    },
-                                    {
-                                        "text": "The Merge Formula: 3x Identical Base Jokers + Crystal Fee = 1x Golden Joker",
-                                        "type": "bullet"
-                                    },
-                                    {
-                                        "text": "The Golden Effect: A Golden Joker yields exactly 2x the power, efficiency, or trigger rate of its base counterpart.",
-                                        "type": "bullet"
-                                    },
-                                    {
-                                        "text": "Slot Efficiency: A Golden Joker takes up only one card slot in the deck while providing the value of two, allowing players to mathematically out-scale the higher difficulties without bloating their deck size.",
-                                        "type": "bullet"
-                                    }
-                                ]
-                            },
-                            {
-                                "text": "Merge Costs",
-                                "level": 3,
-                                "type": "toggle",
-                                "children": [
-                                    {
-                                        "text": "Merging requires a significant Crystal investment based on the card's rarity, creating a massive long-term goal for dedicated players.",
-                                        "type": "paragraph"
-                                    },
-                                    {
-                                        "type": "table",
-                                        "rows": [
-                                            [
-                                                "Merge Fee",
-                                                "Example Base Effect → Golden Effect",
-                                                "Rarity Tier"
-                                            ],
-                                            [
-                                                "50 💎",
-                                                "Thief: +20 Gold $\\rightarrow$ Golden Thief: +40 Gold",
-                                                "Common"
-                                            ],
-                                            [
-                                                "150 💎",
-                                                "Bomb: 10 Damage $\\rightarrow$ Golden Bomb: 20 Damage",
-                                                "Rare"
-                                            ],
-                                            [
-                                                "400 💎",
-                                                "Healing: Max HP $\\rightarrow$ Golden Healing: Max HP + Max HP Overheal",
-                                                "Epic"
-                                            ],
-                                            [
-                                                "1000 💎",
-                                                "Map: Reveals 1 room $\\rightarrow$ Golden Map: Reveals 2 rooms",
-                                                "Legendary"
-                                            ]
-                                        ]
-                                    }
-                                ]
-                            }
-                        ]
-                    }
-                ]
-            },
-            {
-                "type": "divider"
-            },
-            {
-                "text": "Balancing & Testing Methodology",
-                "level": 1,
-                "type": "toggle",
-                "children": [
-                    {
-                        "text": "Theoretical Framework",
-                        "level": 2,
-                        "type": "toggle",
-                        "children": [
-                            {
-                                "text": "Currently, the numerical values for the meta-progression economy (crystal costs, joker drop rates, tier modifiers, etc.) represent a baseline mathematical model. These default values were established using standard exponential progression curves to create a robust \"paper prototype\". The goal of this phase is to ensure the core economic loop is logically sound on paper before hardcoding values into the engine.",
-                                "type": "paragraph"
-                            }
-                        ]
-                    },
-                    {
-                        "text": "Planned Simulation & Empirical Testing (Current State)",
-                        "level": 2,
-                        "type": "toggle",
-                        "children": [
-                            {
-                                "text": "Moving from theoretical balance to empirical data is the next critical step. To refine these default numbers, I am currently working on building a lightweight script in Python to run automated Monte Carlo simulations of the game.",
-                                "type": "paragraph"
-                            },
-                            {
-                                "text": "Running thousands of simulated hands will allow me to build a well-balanced in-game economy. Based on this data, the earning and cost values will be iteratively adjusted to ensure the late-game remains punishingly difficult but mathematically solvable.",
-                                "type": "paragraph"
-                            }
-                        ]
-                    }
-                ]
-            },
-            {
-                "type": "divider"
+                "text": "Onboarding was rewritten from playtest feedback into an eighteen-page tutorial, one idea per page, with serpents briefed only when a level that carries them unlocks. The full How to Play reference was rewritten alongside it, in English and Turkish.",
+                "type": "paragraph"
             },
             {
                 "text": "Platform & Controls",
-                "level": 1,
-                "type": "toggle",
-                "children": [
-                    {
-                        "text": "The game is designed for cross-platform accessibility, targeting both PC and Mobile. The control scheme is highly tactile and minimalist, utilizing intuitive drag-and-drop mechanics for PC (mouse) and fluid swipe gestures for Mobile platforms.",
-                        "type": "paragraph"
-                    }
-                ]
+                "type": "heading2"
             },
             {
-                "type": "divider"
-            },
-            {
-                "text": "Art Direction",
-                "level": 1,
-                "type": "toggle",
-                "children": [
-                    {
-                        "text": "To maintain absolute focus on the core mathematical loop and strategic decision-making, the UI is strictly card-centric. Similar to Balatro, there are no character avatars, excessive animations, or overly flashy visual effects to distract the player.",
-                        "type": "paragraph"
-                    },
-                    {
-                        "text": "However, rather than a bright casino aesthetic, the visual direction leans into a dark, atmospheric dungeon crawler vibe. Drawing inspiration from the grim, tactile nature of Inscryption and the distinct, moody art styles of Slay the Spire, the aesthetic relies on subtle, shadowy environments and highly readable card art to convey the mechanical weight and danger of the dungeon.",
-                        "type": "paragraph"
-                    },
-                    {
-                        "text": "Unfortuanetly as I am not a visual artist myself, I will either be working on my own skillts to bring my visual vision for this game to life or seek out help from other visual artists. I do not intend to use any AI generated content for any of the projects I work on.",
-                        "type": "paragraph"
-                    }
-                ]
+                "text": "Windows, mouse only. Three save profiles, seeded runs that can be replayed from the Past Runs screen, and confirmations for every real choice that can be switched off once you know the game.",
+                "type": "paragraph"
             }
         ]
     },
