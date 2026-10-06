@@ -27,7 +27,6 @@ export const site = {
   phone: "",
   linkedin: "https://www.linkedin.com/in/kaan-berk-can",
   itch: "https://graven5226.itch.io",
-  cv: "/KaanBerkCan_CV.pdf",
 };
 
 export const categories: {
@@ -58,6 +57,29 @@ export const categories: {
 ];
 
 export const projects: Project[] = [
+  {
+    id: "dekrawler",
+    slug: "dekrawler",
+    title: "Dekrawler",
+    category: "digital-games",
+    genre: "Roguelike Dungeon Crawler / Card Game",
+    role: "Solo Designer & Developer",
+    status: "v0.4.0 on itch.io",
+    summary:
+      "A single-player roguelike where a deck of playing cards is the entire dungeon. Each suit is a verb, and your weapon degrades to the rank of whatever it last killed, so the order you fight in matters more than anything else. Built solo in Unity 6, with every graphic drawn in code and every sound synthesized at runtime, and released on itch.io.",
+    highlights: [
+      "Weapon degradation drives every decision: a kill locks the weapon to that enemy's rank, turning each room into a sequencing puzzle.",
+      "Thirteen campaign tiers built from discrete rules rather than escalating stat multipliers, each rule introduced on its own before it is combined.",
+      "Two designed suits beyond the standard deck: Oracle reads and manipulates the upcoming draw, serpents hide their face until you commit to the fight.",
+      "Meta progression of 45 card-bound jokers, 15 rule-rewriting artifacts and 7 deck upgrades, bought with crystals; levels can be bought in any order.",
+      "A Monte Carlo simulator drives the real game engine rather than a model of it, so balance is measured against the shipped rules.",
+      "No art or audio files: the interface is drawn in code and the soundtrack's four layers fade in as the run gets more dangerous.",
+    ],
+    tags: ["Playable Build", "Roguelike", "Deck Building", "Unity 6"],
+    links: [
+      { label: "Play on itch.io", url: "https://graven5226.itch.io/dekrawler" },
+    ],
+  },
   {
     id: "harvey-park",
     slug: "harvey-park",
@@ -111,29 +133,6 @@ export const projects: Project[] = [
       "Engineers reshape battlefields; assassins exploit terrain for stealth strikes.",
     ],
     tags: ["Worldbuilding", "Miracle IP", "RTS", "TBS"],
-  },
-  {
-    id: "dekrawler",
-    slug: "dekrawler",
-    title: "Dekrawler",
-    category: "digital-games",
-    genre: "Roguelike Dungeon Crawler / Card Game",
-    role: "Solo Designer & Developer",
-    status: "v0.4.0 on itch.io",
-    summary:
-      "A single-player roguelike where a deck of playing cards is the entire dungeon. Each suit is a verb, and your weapon degrades to the rank of whatever it last killed, so the order you fight in matters more than anything else. Built solo in Unity 6, with every graphic drawn in code and every sound synthesized at runtime, and released on itch.io.",
-    highlights: [
-      "Weapon degradation drives every decision: a kill locks the weapon to that enemy's rank, turning each room into a sequencing puzzle.",
-      "Thirteen campaign tiers built from discrete rules rather than escalating stat multipliers, each rule introduced on its own before it is combined.",
-      "Two designed suits beyond the standard deck: Oracle reads and manipulates the upcoming draw, serpents hide their face until you commit to the fight.",
-      "Meta progression of 45 card-bound jokers, 15 rule-rewriting artifacts and 7 deck upgrades, bought with crystals; levels can be bought in any order.",
-      "A Monte Carlo simulator drives the real game engine rather than a model of it, so balance is measured against the shipped rules.",
-      "No art or audio files: the interface is drawn in code and the soundtrack's four layers fade in as the run gets more dangerous.",
-    ],
-    tags: ["Playable Build", "Roguelike", "Deck Building", "Unity 6"],
-    links: [
-      { label: "Play on itch.io", url: "https://graven5226.itch.io/dekrawler" },
-    ],
   },
   {
     id: "miracle-board-game",

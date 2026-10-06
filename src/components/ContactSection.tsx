@@ -39,14 +39,6 @@ export function ContactSection() {
             >
               Play on itch.io
             </a>
-            <a
-              href={site.cv}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="rounded-full border border-[var(--color-border)] px-6 py-3 text-sm font-medium transition-colors hover:border-[var(--color-accent)]"
-            >
-              Download CV
-            </a>
             {site.phone ? (
               <a
                 href={`tel:${site.phone.replace(/\s/g, "")}`}
