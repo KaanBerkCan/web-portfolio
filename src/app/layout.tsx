@@ -23,7 +23,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Kaan Berk Can — Game & System Design Portfolio",
     description:
-      "Bridging engineering logic with creative system design.",
+      "Games, systems design and research by Kaan Berk Can: Dekrawler, Harvey Park, Idle Incrementation and more.",
     type: "website",
   },
   twitter: {
