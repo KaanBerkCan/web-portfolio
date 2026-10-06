@@ -26,6 +26,8 @@ export const site = {
   email: "kaanc5528@gmail.com",
   phone: "+90 530 308 29 40",
   linkedin: "https://www.linkedin.com/in/kaan-berk-can",
+  itch: "https://graven5226.itch.io",
+  cv: "/KaanBerkCan_CV.pdf",
 };
 
 export const categories: {
@@ -389,7 +391,7 @@ export const experience: ExperienceEntry[] = [
         title: "Intern Developer",
         period: "August 2022 — April 2023",
         description:
-          "I worked part-time on developments and also completed the internships required for my degree.",
+          "I worked part-time as a developer on the same crew systems team while completing the internships required for my degree.",
       },
     ],
   },

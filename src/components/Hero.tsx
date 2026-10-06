@@ -32,6 +32,22 @@ export function Hero() {
           >
             LinkedIn
           </a>
+          <a
+            href={site.itch}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="rounded-full border border-[var(--color-border)] px-6 py-3 text-sm font-medium transition-colors hover:border-[var(--color-accent)]"
+          >
+            itch.io
+          </a>
+          <a
+            href={site.cv}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="rounded-full border border-[var(--color-border)] px-6 py-3 text-sm font-medium transition-colors hover:border-[var(--color-accent)]"
+          >
+            Download CV
+          </a>
         </div>
 
         <div className="animate-fade-up animate-delay-4 mt-12 grid grid-cols-2 justify-items-center gap-6 border-t border-[var(--color-border)] pt-8 md:grid-cols-4">
@@ -39,7 +55,7 @@ export function Hero() {
             { label: "Digital Games", value: "4" },
             { label: "Tabletop Systems", value: "3" },
             { label: "Game Concepts", value: "3" },
-            { label: "Research Papers", value: "5" },
+            { label: "Research & Analysis", value: "5" },
           ].map((stat) => (
             <div key={stat.label} className="text-left">
               <p className="font-[family-name:var(--font-syne)] text-3xl font-bold text-[var(--color-accent)]">

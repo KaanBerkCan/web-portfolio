@@ -13,8 +13,8 @@ export function ContactSection() {
             Let&apos;s build something together
           </h2>
           <p className="mt-4 max-w-xl text-[var(--color-muted)]">
-            Open to remote Technical Design, System Design, and Analytics roles.
-            Reach out for collaborations, playtesting, or portfolio discussions.
+            Open to remote Game Design, Technical and Systems Design, Software and
+            Analytics roles. Reach out for collaborations, playtesting, or portfolio discussions.
           </p>
           <div className="mt-8 flex flex-wrap gap-4">
             <a
@@ -30,6 +30,22 @@ export function ContactSection() {
               className="rounded-full border border-[var(--color-border)] px-6 py-3 text-sm font-medium transition-colors hover:border-[var(--color-accent)]"
             >
               Connect on LinkedIn
+            </a>
+            <a
+              href={site.itch}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="rounded-full border border-[var(--color-border)] px-6 py-3 text-sm font-medium transition-colors hover:border-[var(--color-accent)]"
+            >
+              Play on itch.io
+            </a>
+            <a
+              href={site.cv}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="rounded-full border border-[var(--color-border)] px-6 py-3 text-sm font-medium transition-colors hover:border-[var(--color-accent)]"
+            >
+              Download CV
             </a>
             {site.phone ? (
               <a
