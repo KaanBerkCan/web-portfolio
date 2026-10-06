@@ -16,6 +16,7 @@ const syne = Syne({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://kaanberkcan-web-portfolio.vercel.app"),
   title: "Kaan Berk Can — Game & System Design Portfolio",
   description:
     "Game and system design portfolio by Kaan Berk Can. Digital prototypes, tabletop systems, game concepts, and research in mathematical analytics.",
@@ -24,6 +25,9 @@ export const metadata: Metadata = {
     description:
       "Bridging engineering logic with creative system design.",
     type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
   },
 };
 
