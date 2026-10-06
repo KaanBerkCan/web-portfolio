@@ -24,7 +24,7 @@ export const site = {
   tagline: "Bridging engineering logic with creative system design",
   bio: "Industrial Engineer and Software Developer with 3 years on Turkish Airlines' crew planning systems, where I rewrote the crew assignment optimizer's constraint model for 20,000+ crew. Now completing an MSc in Game and Interaction Technologies at ITU and designing games the way I built those systems: with mathematical models, simulation and data. Seeking remote Game Design, Technical Design, Systems Design, Software or Analytics roles.",
   email: "kaanc5528@gmail.com",
-  phone: "+90 530 308 29 40",
+  phone: "",
   linkedin: "https://www.linkedin.com/in/kaan-berk-can",
   itch: "https://graven5226.itch.io",
   cv: "/KaanBerkCan_CV.pdf",
@@ -74,6 +74,9 @@ export const projects: Project[] = [
       "16-floor tower progression culminating in a fusion-room memory boss encounter.",
     ],
     tags: ["Demo", "Ongoing Project", "Horror", "Anomaly"],
+    links: [
+      { label: "Play on itch.io", url: "https://graven5226.itch.io/harvey-park" },
+    ],
   },
   {
     id: "birth-of-miracle",
@@ -392,18 +395,6 @@ export const experience: ExperienceEntry[] = [
         period: "August 2022 — April 2023",
         description:
           "I worked part-time as a developer on the same crew systems team while completing the internships required for my degree.",
-      },
-    ],
-  },
-  {
-    organization: "Kuzey Technic Metal Processing Inc.",
-    period: "June 2022 — August 2022",
-    roles: [
-      {
-        title: "Workshop Intern",
-        period: "June 2022 — August 2022",
-        description:
-          "I successfully completed my workshop internship by working with CNC machines.",
       },
     ],
   },
